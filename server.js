@@ -10,7 +10,9 @@ let notes = [];
 app.get("/", (req, res) => {
     res.send("Notes API Running");
 });
-
+app.get("/webhook",(req,res)=>{
+    res.send("web hook is working");
+})
 // Get all notes
 app.get("/notes", (req, res) => {
     res.json(notes);
