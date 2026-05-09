@@ -8,7 +8,7 @@ let notes = [];
 
 // Home route
 app.get("/", (req, res) => {
-    res.send("Notes API Running");
+    res.send("Notes API Running and webhook and automatic CI/CD jenkins setup was done");
 });
 app.get("/webhook",(req,res)=>{
     res.send("web hook is working");
