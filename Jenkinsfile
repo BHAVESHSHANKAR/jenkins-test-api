@@ -15,16 +15,21 @@ pipeline {
             }
         }
 
-        stage('Run Application Check') {
+        stage('Deploy to Render') {
             steps {
-                bat 'npm list'
+                powershell 'Invoke-WebRequest -Uri "https://api.render.com/deploy/srv-d7vdbireo5us73ejsqp0?key=-JQfye2yAIg" -Method POST'
             }
         }
+    }
 
-        stage('Success') {
-            steps {
-                echo 'Node.js CI pipeline completed successfully'
-            }
+    post {
+
+        success {
+            echo 'Build and deployment successful'
+        }
+
+        failure {
+            echo 'Pipeline failed'
         }
     }
 }
